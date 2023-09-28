@@ -1,0 +1,11 @@
+<!--taken from: https://fonts.google.com/icons?selected=Material+Symbols+Outlined:arrow_back_ios:FILL@0;wght@400;GRAD@0;opsz@24&icon.platform=android-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="960"
+    android:viewportHeight="960"
+    android:autoMirrored="true">
+    <path
+        android:fillColor="@color/round_square"
+        android:pathData="M400,880L0,480L400,80L471,151L142,480L471,809L400,880Z"/>
+</vector>

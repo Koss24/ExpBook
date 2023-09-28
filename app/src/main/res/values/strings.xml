@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ExpBook</string>
+    <string name="content_string">sample_text</string>
+    <string name="name_of_expense">Name of Expense</string>
+    <string name="date_of_expense">Date of Expense</string>
+    <string name="charge_of_expense">charge</string>
+    <string name="comment_of_expense">comment</string>
+    <string name="add_expense">Add Expense</string>
+    <string name="delete_expense">Delete Expense</string>
+</resources>
