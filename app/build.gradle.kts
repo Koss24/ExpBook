@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.expbook"
-        minSdk = 34
+        minSdk = 32
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"

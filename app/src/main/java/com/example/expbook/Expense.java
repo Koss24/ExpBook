@@ -15,13 +15,21 @@ public class Expense implements Serializable {
     @SuppressLint("SimpleDateFormat")
     private SimpleDateFormat f = new SimpleDateFormat("yyyy-MM");
 
+    public Expense(String name, String year, String month, int charge, String comment) {
+        this.name = name;
+        this.year = year;
+        this.month = month;
+        this.charge = charge;
+        this.comment = comment;
+    }
+
     public Expense(String name, String monthStarted, int charge, String comment) {
         this.name = name;
         this.monthStarted =  monthStarted;
         this.charge = charge;
         this.comment = comment;
 
-        this.split_monthStarted();
+//        this.split_monthStarted();
     }
 
     public Expense(String name, String monthStarted, int charge) {
@@ -29,7 +37,7 @@ public class Expense implements Serializable {
         this.monthStarted =  monthStarted;
         this.charge = charge;
 
-        this.split_monthStarted();
+//        this.split_monthStarted();
     }
 
     public String getName() {
@@ -68,14 +76,14 @@ public class Expense implements Serializable {
 
     public void setMonthStarted(String monthStarted) {
         this.monthStarted = monthStarted;
-        this.split_monthStarted();
+//        this.split_monthStarted();
     }
 
-    private void split_monthStarted() {
-        String[] splitMonthStarted = this.monthStarted.split("-");
-        this.year = splitMonthStarted[0];
-        this.month = splitMonthStarted[1];
-    }
+//    private void split_monthStarted() {
+//        String[] splitMonthStarted = this.monthStarted.split("-");
+//        this.year = splitMonthStarted[0];
+//        this.month = splitMonthStarted[1];
+//    }
     public void setCharge(int charge) {
         if (!isValidCharge(charge)) throw new IllegalArgumentException("Charge Must be Non-Negative");
         this.charge = charge;
@@ -94,6 +102,10 @@ public class Expense implements Serializable {
         return true;
     }
 
+    public String getYearMonth(){
+        return this.year + "-" + this.month;
+    }
+
 //    public static boolean isValidExpenseDate(Date expenseDate){
 //        //verify date object is in correct format
 //        SimpleDateFormat f = new SimpleDateFormat("yyyy-MM");
@@ -110,6 +122,14 @@ public class Expense implements Serializable {
         }
 
         return true;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
     }
 
     public static boolean isValidComment(String comment){

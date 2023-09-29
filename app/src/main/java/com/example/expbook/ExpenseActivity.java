@@ -30,7 +30,6 @@ import java.text.DateFormatSymbols;
 
 public class ExpenseActivity extends AppCompatActivity {
     EditText form_expense_name;
-    random;
     EditText form_expense_comment;
     EditText form_expense_charge;
     Expense expense_to_edit;
