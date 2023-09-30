@@ -43,7 +43,7 @@ public class ExpenseArrayAdapter extends ArrayAdapter<Expense> {
 
 
         comment.setText(String.valueOf(expense.getComment()));
-        price.setText("$" + String.valueOf(expense.getCharge()));
+        price.setText("$" + String.format("%.02f", expense.getCharge()));
         name.setText(String.valueOf(expense.getName()));
 
         String year = expense.getYear();

@@ -2,6 +2,7 @@ package com.example.expbook;
 import android.annotation.SuppressLint;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 public class Expense implements Serializable {
@@ -9,13 +10,13 @@ public class Expense implements Serializable {
     private String monthStarted;
     private String year;
     private String month;
-    private int charge;
+    private BigDecimal charge;
     private String comment;
 
     @SuppressLint("SimpleDateFormat")
     private SimpleDateFormat f = new SimpleDateFormat("yyyy-MM");
 
-    public Expense(String name, String year, String month, int charge, String comment) {
+    public Expense(String name, String year, String month, BigDecimal charge, String comment) {
         this.name = name;
         this.year = year;
         this.month = month;
@@ -23,7 +24,8 @@ public class Expense implements Serializable {
         this.comment = comment;
     }
 
-    public Expense(String name, String monthStarted, int charge, String comment) {
+    // to be removed
+    public Expense(String name, String monthStarted, BigDecimal charge, String comment) {
         this.name = name;
         this.monthStarted =  monthStarted;
         this.charge = charge;
@@ -32,7 +34,7 @@ public class Expense implements Serializable {
 //        this.split_monthStarted();
     }
 
-    public Expense(String name, String monthStarted, int charge) {
+    public Expense(String name, String monthStarted, BigDecimal charge) {
         this.name = name;
         this.monthStarted =  monthStarted;
         this.charge = charge;
@@ -57,7 +59,7 @@ public class Expense implements Serializable {
         }
     }
 
-    public int getCharge() {
+    public BigDecimal getCharge() {
         return charge;
     }
 
@@ -84,8 +86,8 @@ public class Expense implements Serializable {
 //        this.year = splitMonthStarted[0];
 //        this.month = splitMonthStarted[1];
 //    }
-    public void setCharge(int charge) {
-        if (!isValidCharge(charge)) throw new IllegalArgumentException("Charge Must be Non-Negative");
+    public void setCharge(BigDecimal charge) {
+        //if (!isValidCharge(charge)) throw new IllegalArgumentException("Charge Must be Non-Negative");
         this.charge = charge;
     }
 

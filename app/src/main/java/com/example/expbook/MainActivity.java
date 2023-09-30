@@ -10,9 +10,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements AddExpenseFragmen
     ArrayList<Expense> dataList;
     EditText form_expense_name;
     private Expense selectedExpense;
+    private TextView total_expense;
 
     Expense edited_expense = null;
     SimpleDateFormat formatter;
@@ -42,11 +45,14 @@ public class MainActivity extends AppCompatActivity implements AddExpenseFragmen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Expense exp1 = new Expense("Expense 1", "2023","8", 123, "comment");
-        Expense []expenses = {exp1};
+        BigDecimal charge = BigDecimal.valueOf(123.00);
+
+//        Expense exp1 = new Expense("Expense 1", "2023","8", charge, "comment");
+//        Expense []expenses = {exp1};
+        total_expense = findViewById(R.id.total_expense_val);
 
         dataList = new ArrayList<Expense>();
-        dataList.add(exp1);
+//        dataList.add(exp1);
         Date date = new Date();
         SimpleDateFormat f = new SimpleDateFormat("yyyy-MM");
 
@@ -179,7 +185,14 @@ public class MainActivity extends AppCompatActivity implements AddExpenseFragmen
 
             dataList.add(expense);
         }
+        BigDecimal sum = new BigDecimal(0);
 
+        for(Expense exp: dataList){
+
+            sum = sum.add(exp.getCharge());
+        }
+        String total = "$"+String.format("%.02f",sum);
+        total_expense.setText(total);
         expenseAdapter.notifyDataSetChanged();
 
     }

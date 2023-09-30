@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="incorrect_input">#E8AD0F0F</color>
     <color name="round_square">#6750A3</color>
+    <color name="all_expense_color">#BDBDBD</color>
 </resources>
